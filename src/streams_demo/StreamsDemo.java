@@ -125,13 +125,6 @@ public class StreamsDemo {
 		
 		List<String> words = Arrays.asList("One","Two", "Three", "Four", "Two");
 		
-		/*new ArrayList<>();
-		words.add("One");
-		words.add("Two");
-		words.add("Three");
-		words.add("Four");
-		words.add("Two");*/
-		
 		System.out.println("convert all elements to uppercase"); 
 		List<String> wordsResult = words.stream()
 										.map(word -> word.toUpperCase())
