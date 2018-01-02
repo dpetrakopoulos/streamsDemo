@@ -13,8 +13,15 @@ import java.util.stream.Stream;
 public class StreamsDemo {
 
 	public static void main(String[] args) {
-		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5); 
+		playWithIntegerStreams();
+		
+		playWithStringStreams();
+
+	}
 	
+	public static void playWithIntegerStreams() {
+		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5); 
+		
 		System.out.println("filter elements greater than 3 and limit 1");
 		List<Integer> result = numbers.stream()
 									  .filter(number -> number > 3)
@@ -117,7 +124,9 @@ public class StreamsDemo {
 		System.out.println(evenNumbersRange.count());
 		
 		System.out.println("------------------------------");
-		
+	}
+	
+	public static void playWithStringStreams() {
 		List<String> words = Arrays.asList("One","Two", "Three", "Four", "Two");
 		
 		System.out.println("convert all elements to uppercase"); 
@@ -172,8 +181,6 @@ public class StreamsDemo {
 									.map(String::toLowerCase) 
 									.peek(e -> System.out.println("Mapped value: " + e)) 
 									.collect(Collectors.toList());
-
-	
 	}
 
 }
