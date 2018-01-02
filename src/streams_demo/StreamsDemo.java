@@ -13,12 +13,7 @@ import java.util.stream.Stream;
 public class StreamsDemo {
 
 	public static void main(String[] args) {
-		List<Integer> numbers = new ArrayList<>();
-		numbers.add(1);
-		numbers.add(2);
-		numbers.add(3);
-		numbers.add(4);
-		numbers.add(5);
+		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5); 
 	
 		System.out.println("filter elements greater than 3 and limit 1");
 		List<Integer> result = numbers.stream()
