@@ -10,6 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Numbers {
 	
@@ -88,6 +89,12 @@ public class Numbers {
 		System.out.println("sum up the numbers using reduce and method reference");
 		int sumReduceMethodReference = numbers.stream().reduce(0, Integer::sum);
 		System.out.println(sumReduceMethodReference);
+		
+		System.out.println("------------------------------");
+
+		System.out.println("sum all numbers starting from 1 to 1000 using parallel streams");
+		long sumParallelStreams = Stream.iterate(1L, i -> i + 1).limit(1000).parallel().reduce(0L, Long::sum);
+		System.out.println(sumParallelStreams);
 	}
 
 	static void filterNumbers() {
