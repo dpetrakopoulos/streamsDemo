@@ -3,8 +3,6 @@ package streams_demo;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.*;
-
 /**
  * The Streams API lets you express complex data processing queries. 
  * - You can filter and slice a stream using the filter , distinct , skip , and limit methods. 
@@ -67,7 +65,7 @@ public class StreamsDemo {
 
 		Strings.concatenateElements();
 
-		usePeek();
+		Strings.usePeek();
 
 	}
 	
@@ -102,12 +100,4 @@ public class StreamsDemo {
 
 		Stream.generate(Math::random).limit(5).forEach(System.out::println);
 	}
-
-	private static void usePeek() {
-		System.out.println("Use peek");
-		Stream.of("EURO/INR", "USD/AUD", "USD/GBP", "USD/EURO").filter(e -> e.length() > 7)
-				.peek(e -> System.out.println("Filtered value: " + e)).map(String::toLowerCase)
-				.peek(e -> System.out.println("Mapped value: " + e)).collect(toList());
-	}
-
 }

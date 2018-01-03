@@ -6,6 +6,7 @@ import static java.util.stream.Collectors.toList;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Strings {
 	private static final List<String> words = Arrays.asList("One", "Two", "Three", "Four", "Two");
@@ -65,5 +66,12 @@ public class Strings {
 
 		wordsResult.forEach(System.out::println);
 		System.out.println("------------------------------");
+	}
+	
+	static void usePeek() {
+		System.out.println("Use peek");
+		Stream.of("EURO/INR", "USD/AUD", "USD/GBP", "USD/EURO").filter(e -> e.length() > 7)
+				.peek(e -> System.out.println("Filtered value: " + e)).map(String::toLowerCase)
+				.peek(e -> System.out.println("Mapped value: " + e)).collect(toList());
 	}
 }
