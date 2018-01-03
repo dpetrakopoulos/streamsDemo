@@ -124,6 +124,12 @@ public class StreamsDemo {
 		String concatResult = words.stream().reduce("", (a, b) -> a + b);
 		System.out.println(concatResult);
 		System.out.println("------------------------------");
+		
+		System.out.println("Concatenate all elements in list with joining");
+		String concatResultWithJoining = words.stream().collect(joining());
+		System.out.println(concatResultWithJoining);
+		System.out.println("------------------------------");
+		
 	}
 
 	private static void getDistinctElements() {
@@ -227,6 +233,12 @@ public class StreamsDemo {
 		Optional<Integer> sumReduceLambdaNoInitialValue = numbers.stream().reduce((a, b) -> (a + b));
 		System.out.println(sumReduceLambdaNoInitialValue.get());
 
+		System.out.println("------------------------------");
+
+		System.out.println("sum up the numbers with collect and reduce");
+		int sumCollectReducing = numbers.stream().collect(reducing(0, Integer::sum));
+		System.out.println(sumCollectReducing);
+		
 		System.out.println("------------------------------");
 		System.out.println("sum up the numbers using Collectors.summingInt");
 		int sum = numbers.stream().collect(summingInt(n -> n.intValue()));
