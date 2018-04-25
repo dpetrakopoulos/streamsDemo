@@ -1,6 +1,9 @@
 package streams_demo;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Stream;
 
 /**
@@ -84,6 +87,35 @@ public class StreamsDemo {
 		int[] numbers = { 2, 3, 5, 7, 11, 13 };
 		int sum = Arrays.stream(numbers).sum();
 		System.out.println(sum);
+		
+		Map<Integer, String> testMap = new HashMap<>();
+		testMap.put(1, "10");
+		testMap.put(2, "20");
+		testMap.put(3, "30");
+		testMap.put(4, "40");
+		
+		Set<Integer> keys = testMap.keySet();
+		System.out.println(keys);
+		testMap.forEach((i ,s) -> {
+			System.out.println(i);
+			System.out.println(s);
+		});
+		
+		System.out.println("Stream of - keys");
+		testMap.keySet().stream().forEach(System.out::println);
+		
+		System.out.println("Stream of - values");
+		testMap.values().stream().forEach(System.out::println);
+		
+		System.out.println("Complex map");
+		
+		Map<Integer, Map<Integer,String>> complexMap = new HashMap<>();
+		System.out.println("map is empty: " + testMap.isEmpty());
+	    complexMap.put(1, testMap);
+		complexMap.forEach((i ,s) -> {
+			System.out.println(i);
+			System.out.println(s);
+		});
 	}
 
 	private static void streamsIterateAndGenerate() {

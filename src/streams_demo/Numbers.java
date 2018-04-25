@@ -17,6 +17,12 @@ public class Numbers {
 	private static final List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 	
 	static void findEvenNumbers() {
+		numbers.forEach(n -> {
+			if(n == 2) {
+				System.out.println("Number is 2!!!!");
+			}
+		});
+		
 		System.out.println("find number of even numbers between 1 and 100 with rangeClosed (inclusive)");
 		IntStream evenNumbersRangeClosed = IntStream.rangeClosed(1, 100).filter(n -> n % 2 == 0);
 		System.out.println(evenNumbersRangeClosed.count());
@@ -108,6 +114,11 @@ public class Numbers {
 		List<Integer> resultSkipped = numbers.stream().filter(number -> number > 2).skip(2) // skip first 2 elements
 				.collect(toList());
 
+		Stream<Integer> integers = numbers.stream().filter(number -> number > 2);
+		integers.forEach(System.out::println);
+		
+		System.out.println("Print skipped");
+		
 		resultSkipped.forEach(System.out::println);
 
 		System.out.println("------------------------------");

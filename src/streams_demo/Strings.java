@@ -62,7 +62,7 @@ public class Strings {
 
 	static void convertToUppercase() {
 		System.out.println("convert all elements to uppercase");
-		List<String> wordsResult = words.stream().map(word -> word.toUpperCase()).collect(toList());
+		List<String> wordsResult = words.stream().map(String::toUpperCase).collect(toList());
 
 		wordsResult.forEach(System.out::println);
 		System.out.println("------------------------------");
